@@ -2,6 +2,18 @@ package horstman.tasks
 
 import scala.jdk.CollectionConverters._
 object str80num5 extends App{
+  var result = scala.collection.mutable.Map[String, Int]()
+  val in = new java.util.Scanner(new java.io.File("C:\\Users\\BREGIS_ACER\\IdeaProjects\\Sec\\src\\main\\scala\\myfile.txt")).asScala
+  while (in.hasNext) {
+    val word = in.next
+    if (result.contains(word)) result = result + (word -> {result(word) + 1})
+    else result = result + (word -> 1)
+  }
+
+  print(result)
+
+
+  """
   var result:scala.collection.mutable.Map[String, Int] =
     new java.util.TreeMap[String, Int].asScala
   val in = new java.util.Scanner(new java.io.File("C:\\Users\\BREGIS_ACER\\IdeaProjects\\Sec\\src\\main\\scala\\myfile.txt"))
@@ -14,4 +26,5 @@ object str80num5 extends App{
   }
   result = result - ""
   print(result)
+}"""
 }
